@@ -1,0 +1,15 @@
+base:
+  namespace: istio-system
+istiod:
+  namespace: istio-system
+  meshConfig:
+    rootNamespace: istio-system
+cert-manager-istio-csr:
+  namespace: istio-system
+istio-gateway:
+  namespace: istio-ingress
+  tolerations:
+  - key: "node_type"
+    operator: "Equal"
+    value: "system"
+    effect: "NoSchedule"

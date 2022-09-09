@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: default
+        url: https://kubernetes.default.svc
+        appName: cert-manager
+        namespace: cert-manager
+      - cluster: default
+        url: https://kubernetes.default.svc
+        appName: istio
+        namespace: istio-system
+  template:
+    metadata:
+      name: "{{appName}}"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/asofi327/services-testing
+        targetRevision: HEAD
+        path: "{{appName}}/"
+      destination:
+        server: "{{url}}"
+        namespace: "{{namespace}}"

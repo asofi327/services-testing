@@ -1,0 +1,14 @@
+apiVersion: v2
+name: mc-cert-manager
+description: A Helm chart for cert-manager
+type: application
+
+version: 1.9.1
+appVersion: "1.9.1"
+
+
+dependencies:
+- name: cert-manager
+  alias: cert-manager
+  version: 1.9.1
+  repository: https://charts.jetstack.io

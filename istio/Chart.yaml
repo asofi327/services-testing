@@ -1,0 +1,25 @@
+apiVersion: v2
+name: mc-istio
+description: A Helm chart for istio
+type: application
+
+version: 0.1.0
+appVersion: "1.15.0"
+
+
+dependencies:
+- name: cert-manager-istio-csr
+  version: 0.5.0
+  repository: https://charts.jetstack.io
+  alias: cert-manager-istio-csr
+- name: base
+  version: 1.15.0
+  repository: https://istio-release.storage.googleapis.com/charts
+  alias: istio-base
+- name: gateway
+  version: 1.15.0
+  repository: https://istio-release.storage.googleapis.com/charts
+  alias: istio-ingress-gateway
+- name: istiod
+  version: 1.15.0
+  repository: https://istio-release.storage.googleapis.com/charts
