@@ -21,9 +21,8 @@ spec:
     size: 256
   subject:
     organizations:
-    - cluster.local
-    - cert-manager
-    - arielsofi.com
+      - cluster.local
+      - cert-manager
   issuerRef:
     name: selfsigned
     kind: Issuer
