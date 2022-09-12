@@ -23,6 +23,7 @@ spec:
     organizations:
       - cluster.local
       - cert-manager
+      - "{{ .Values.orgnization }}"
   issuerRef:
     name: selfsigned
     kind: Issuer

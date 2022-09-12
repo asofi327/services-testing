@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: default
+        appName: cert-manager
+        namespace: cert-manager
+        repoUrl: https://github.com/asofi327/services-testing
+        url: https://kubernetes.default.svc
+        values:
+          organization: "Morning Consult"
+          server_cert_domain: "sandbox.mcng.io"
+      - cluster: default
+        appName: istio
+        namespace: istio-system
+        repoUrl: https://github.com/asofi327/services-testing
+        url: https://kubernetes.default.svc
+        values:
+          
+  template:
+    metadata:
+      name: "{{appName}}"
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: "{{repoUrl}}"
+        targetRevision: HEAD
+        path: "{{appName}}/"
+        helm:
+          skipCrds: false
+          parameters:
+            "{{values | indent 2 -}}"
+      destination:
+        server: "{{url}}"
+        namespace: "{{namespace}}"

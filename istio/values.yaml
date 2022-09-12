@@ -4,6 +4,12 @@ istiod:
   namespace: istio-system
   meshConfig:
     rootNamespace: istio-system
+  pilot:
+    tolerations:
+    - key: "node_type"
+      operator: "Equal"
+      value: "system"
+      effect: "NoSchedule"
 cert-manager-istio-csr:
   namespace: istio-system
 istio-gateway:
