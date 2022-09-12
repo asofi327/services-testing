@@ -1,0 +1,6 @@
+keycloak:
+  commonLabels:
+    istio-injection: enabled
+  ingress:
+    enabled: true
+    ingressClassName: istio
