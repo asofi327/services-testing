@@ -1,4 +1,4 @@
-istio-base:
+base:
   namespace: istio-system
 istiod:
   namespace: istio-system
