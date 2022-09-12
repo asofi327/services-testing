@@ -273,9 +273,9 @@ service:
 
 ingress:
   # If `true`, an Ingress is created
-  enabled: false
+  enabled: true
   # The name of the Ingress Class associated with this ingress
-  ingressClassName: ""
+  ingressClassName: "istio"
   # The Service port targeted by the Ingress
   servicePort: http
   # Ingress annotations
@@ -290,7 +290,7 @@ ingress:
   rules:
     -
       # Ingress host
-      host: '{{ .Release.Name }}.keycloak.example.com'
+      host: 'keycloak.arielsofi.com'
       # Paths for the host
       paths:
         - path: /
@@ -298,7 +298,7 @@ ingress:
   # TLS configuration
   tls:
     - hosts:
-        - keycloak.example.com
+        - keycloak.arielsofi.com
       secretName: ""
 
   # ingress for console only (/auth/admin)
