@@ -4,3 +4,5 @@ keycloak:
   ingress:
     enabled: true
     ingressClassName: istio
+  postgresql:
+  enabled: false
