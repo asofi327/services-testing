@@ -4,6 +4,21 @@ istiod:
   namespace: istio-system
   meshConfig:
     rootNamespace: istio-system
+  multiCluster:
+    enabled: true
+    clusterName: core-services
+  network: core-services
+  meshNetworks:
+    core-services:
+      endpoints:
+      - fromCidr: "10.10.0.0/16"
+      east-prod:
+      - fromCidr: "10.100.0.0/16"
+      west-prod:
+      - fromCidr: "10.200.0.0/16"
+      gateways:
+      - registryServiceName: istio-ingressgateway.istio-system.svc.cluster.local
+        port: 443
   pilot:
     tolerations:
     - key: "node_type"
@@ -25,8 +40,3 @@ cert-manager-istio-csr:
     mountPath: /etc/tls
 gateway:
   namespace: istio-system
-  tolerations:
-  - key: "node_type"
-    operator: "Equal"
-    value: "system"
-    effect: "NoSchedule"
