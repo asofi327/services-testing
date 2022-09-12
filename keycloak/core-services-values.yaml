@@ -1,8 +1,11 @@
 keycloak:
   commonLabels:
     istio-injection: enabled
-  ingress:
-    enabled: true
-    ingressClassName: istio
   postgresql:
   enabled: false
+  auth:
+    adminUser: admin
+    adminPassword: admin
+  keycloakConfigCli:
+    enabled: true
+    
