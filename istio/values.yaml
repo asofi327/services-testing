@@ -1,4 +1,4 @@
-base:
+istio-base:
   namespace: istio-system
 istiod:
   namespace: istio-system
@@ -23,7 +23,7 @@ cert-manager-istio-csr:
   volumeMounts:
   - name: root-ca
     mountPath: /etc/tls
-istio-gateway:
+istio-ingressgateway:
   namespace: istio-ingress
   tolerations:
   - key: "node_type"
