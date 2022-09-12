@@ -23,7 +23,7 @@ cert-manager-istio-csr:
   volumeMounts:
   - name: root-ca
     mountPath: /etc/tls
-istio-ingressgateway:
+gateway:
   namespace: istio-system
   tolerations:
   - key: "node_type"
