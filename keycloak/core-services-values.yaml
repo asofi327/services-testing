@@ -2,10 +2,9 @@ keycloak:
   commonLabels:
     istio-injection: enabled
   postgresql:
-  enabled: false
+    enabled: false
   auth:
     adminUser: admin
     adminPassword: admin
   keycloakConfigCli:
     enabled: true
-    
