@@ -24,7 +24,7 @@ cert-manager-istio-csr:
   - name: root-ca
     mountPath: /etc/tls
 istio-ingressgateway:
-  namespace: istio-ingress
+  namespace: istio-system
   tolerations:
   - key: "node_type"
     operator: "Equal"
