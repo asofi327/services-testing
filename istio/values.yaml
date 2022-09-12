@@ -12,6 +12,15 @@ istiod:
       effect: "NoSchedule"
 cert-manager-istio-csr:
   namespace: istio-system
+  tls:
+    rootCAFile: /etc/tls/ca-cert.pem
+  volumes:
+  - name: root-ca
+    secret:
+      secretName: istio-ca-secret
+  volumeMounts:
+  - name: root-ca
+    mountPath: /etc/tls
 istio-gateway:
   namespace: istio-ingress
   tolerations:
