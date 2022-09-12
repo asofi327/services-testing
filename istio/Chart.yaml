@@ -9,11 +9,11 @@ appVersion: "1.15.0"
 
 dependencies:
 - name: cert-manager-istio-csr
+  alias: cert-manager-istio-csr
   version: 0.5.0
   repository: https://charts.jetstack.io
-  alias: cert-manager-istio-csr
 - name: istio-base
-  alias: istio-base
+  alias: base
   version: 1.15.0
   repository: https://istio-release.storage.googleapis.com/charts
 - name: istio-ingressgateway
