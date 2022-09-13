@@ -5,9 +5,9 @@ cert-manager:
     leaderElection:
       namespace: istio-system
   installCRDs: true
-  namespace: istio-system
-  # tolerations:
-  # - key: "node_type"
-  #   operator: "Equal"
-  #   value: "system"
-  #   effect: "NoSchedule"
+  namespace: cert-manager
+  tolerations:
+  - key: "node_type"
+    operator: "Equal"
+    value: "system"
+    effect: "NoSchedule"
