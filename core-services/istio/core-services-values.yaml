@@ -13,7 +13,7 @@ istiod:
       endpoints:
       - fromCidr: "10.10.0.0/16"
       gateways:
-      - registryServiceName: istio-ingressgateway.istio-system.svc.cluster.local
+      - registryServiceName: istio-ingressgateway.istio-ingress.svc.cluster.local
         port: 443
     # east-prod:
     #   endpoints:
