@@ -15,12 +15,12 @@ istiod:
       gateways:
       - registryServiceName: istio-ingressgateway.istio-system.svc.cluster.local
         port: 443
-    east-prod:
-      endpoints:
-      - fromCidr: "10.100.0.0/16"
-    west-prod:
-      endpoints:
-      - fromCidr: "10.200.0.0/16"
+    # east-prod:
+    #   endpoints:
+    #   - fromCidr: "10.100.0.0/16"
+    # west-prod:
+    #   endpoints:
+    #   - fromCidr: "10.200.0.0/16"
   pilot:
     tolerations:
     - key: "node_type"
@@ -41,9 +41,7 @@ cert-manager-istio-csr:
   - name: root-ca
     mountPath: /etc/tls
 gateway:
-  gateways:
-  istio-ingressgateway:
-    name: istio-ingressgateway
-    labels:
-      app: istio-ingressgateway
-      istio: ingressgateway
+  name: istio-ingressgateway
+  labels:
+    app: istio-ingressgateway
+    istio: ingressgateway
