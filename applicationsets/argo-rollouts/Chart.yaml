@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mc-rollouts
+name: argo-rollouts
 description: A Helm chart for argo rollouts
 type: application
 

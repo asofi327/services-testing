@@ -12,13 +12,15 @@ istiod:
     core-services:
       endpoints:
       - fromCidr: "10.10.0.0/16"
-      east-prod:
-      - fromCidr: "10.100.0.0/16"
-      west-prod:
-      - fromCidr: "10.200.0.0/16"
       gateways:
       - registryServiceName: istio-ingressgateway.istio-system.svc.cluster.local
         port: 443
+    east-prod:
+      endpoints:
+      - fromCidr: "10.100.0.0/16"
+    west-prod:
+      endpoints:
+      - fromCidr: "10.200.0.0/16"
   pilot:
     tolerations:
     - key: "node_type"

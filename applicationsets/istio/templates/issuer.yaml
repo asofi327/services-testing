@@ -1,8 +1,7 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: selfsigned
-  namespace: istio-system
 spec:
   selfSigned: {}
 ---
@@ -23,10 +22,10 @@ spec:
     organizations:
       - cluster.local
       - cert-manager
-      - "{{ .Values.orgnization }}"
+      - arielsofi.com
   issuerRef:
     name: selfsigned
-    kind: Issuer
+    kind: ClusterIssuer
     group: cert-manager.io
 ---
 apiVersion: cert-manager.io/v1

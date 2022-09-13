@@ -4,10 +4,10 @@ metadata:
   name: keycloak
 spec:
   hosts:
-  - keycloak.arielsofi.com
+    - keycloak.arielsofi.com
   gateways:
-  - istio-system/ingressgateway
-  - keycloak/keycloak-gateway
+    - istio-ingresss/ingressgateway
+    - keycloak/keycloak-gateway
   tcp:
     - route:
         - destination:
