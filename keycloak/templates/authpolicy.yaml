@@ -1,8 +1,8 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: defaultAllowAll
+  name: keycloak-allow-all
   namespace: keycloak
 spec:
   rules:
-  - {}
+    - {}
