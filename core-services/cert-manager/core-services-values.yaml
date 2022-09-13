@@ -1,9 +1,8 @@
 cert-manager:
-  clusterResourceNamespace: istio-system
   featureGates: "ExperimentalCertificateSigningRequestControllers=true"
   global:
     leaderElection:
-      namespace: istio-system
+      namespace: kube-system
   installCRDs: true
   namespace: cert-manager
   tolerations:
