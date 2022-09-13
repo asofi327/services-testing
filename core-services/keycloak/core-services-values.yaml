@@ -1,1 +1,15 @@
 nameOverride: "keycloak"
+ingress:
+  enabled: false
+  ingressClassName: "istio"
+  servicePort: http
+  annotations: {}
+  labels: {}
+  rules:
+  - host: keycloak.arielsofi.com
+    paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        serviceName: keycloak-http
+        servicePort: 8080
