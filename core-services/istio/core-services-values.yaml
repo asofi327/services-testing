@@ -27,8 +27,6 @@ istiod:
       operator: "Equal"
       value: "system"
       effect: "NoSchedule"
-cert-manager:
-  featureGates: "ExperimentalCertificateSigningRequestControllers=true"
 cert-manager-istio-csr:
   namespace: istio-system
   tls:
