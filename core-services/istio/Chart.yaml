@@ -8,10 +8,6 @@ appVersion: "1.15.0"
 
 
 dependencies:
-- name: cert-manager
-  alias: cert-manager
-  version: 1.9.1
-  repository: https://charts.jetstack.io
 - name: cert-manager-istio-csr
   alias: cert-manager-istio-csr
   version: 0.5.0
