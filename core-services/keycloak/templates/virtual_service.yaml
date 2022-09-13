@@ -13,7 +13,7 @@ spec:
         - destination:
             host: keycloak-http
             port:
-              number: 8080
+              number: 80
           weight: 100
       match:
         - uri:
