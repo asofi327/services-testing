@@ -15,19 +15,19 @@ metadata:
     app: keycloak
 spec:
   gateways:
-  - istio-system/istio-ingressgateway
-  - keycloak-gateway
+    - istio-system/istio-ingressgateway
+    - keycloak-gateway
   hosts:
-  - echo.arielsofi.com 
-  - keycloak.keycloak.svc.cluster.local
-  - keycloak.keycloak
-  - keycloak.keycloak.svc
+    - keycloak.arielsofi.com
+    - keycloak.keycloak.svc.cluster.local
+    - keycloak.keycloak
+    - keycloak.keycloak.svc
   http:
-  - route:
-    - destination:
-        host: keycloak.keycloak.svc.cluster.local
-        port:
-          number: 80
+    - route:
+        - destination:
+            host: keycloak.keycloak.svc.cluster.local
+            port:
+              number: 80
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
@@ -35,14 +35,14 @@ metadata:
   name: keycloak-gateway
 spec:
   selector:
-    istio: ingressgateway 
+    istio: ingressgateway
   servers:
-  - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    hosts:
-    - keycloak.arielsofi.com 
-    - keycloak.keycloak.svc.cluster.local
-    - keycloak.keycloak
-    - keycloak.keycloak.svc
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - keycloak.arielsofi.com
+        - keycloak.keycloak.svc.cluster.local
+        - keycloak.keycloak
+        - keycloak.keycloak.svc
