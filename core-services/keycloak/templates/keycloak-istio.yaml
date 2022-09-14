@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    istio-injection: enabled
+    kubernetes.io/metadata.name: keycloak
+  name: keycloak
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: keycloak
+  namespace: keycloak
+  labels:
+    app: keycloak
+spec:
+  gateways:
+  - istio-system/istio-ingressgateway
+  - keycloak-gateway
+  hosts:
+  - echo.arielsofi.com 
+  - keycloak.keycloak.svc.cluster.local
+  - keycloak.keycloak
+  - keycloak.keycloak.svc
+  http:
+  - route:
+    - destination:
+        host: keycloak.keycloak.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: keycloak-gateway
+spec:
+  selector:
+    istio: ingressgateway 
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - keycloak.arielsofi.com 
+    - keycloak.keycloak.svc.cluster.local
+    - keycloak.keycloak
+    - keycloak.keycloak.svc
