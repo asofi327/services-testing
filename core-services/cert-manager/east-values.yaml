@@ -1,0 +1,12 @@
+cert-manager:
+  featureGates: "ExperimentalCertificateSigningRequestControllers=true"
+  global:
+    leaderElection:
+      namespace: kube-system
+  installCRDs: true
+  namespace: cert-manager
+  tolerations:
+  - key: "node_type"
+    operator: "Equal"
+    value: "system"
+    effect: "NoSchedule"
