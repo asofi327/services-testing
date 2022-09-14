@@ -40,8 +40,3 @@ cert-manager-istio-csr:
   volumeMounts:
   - name: root-ca
     mountPath: /etc/tls
-gateway:
-  name: istio-ingressgateway
-  labels:
-    app: istio-ingressgateway
-    istio: ingressgateway
