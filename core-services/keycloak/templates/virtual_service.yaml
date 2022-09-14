@@ -2,19 +2,21 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: keycloak
+  namespace: keycloak
+  labels:
+    app: keycloak
 spec:
+  gateways:
+    - istio-ingress/istio-ingressgateway
+    - keycloak/keycloak
   hosts:
     - keycloak.arielsofi.com
-  gateways:
-    - istio-ingresss/ingressgateway
-    - keycloak/keycloak-gateway
-  tcp:
+    - keycloak.keycloak.svc.cluster.local
+    - keycloak.keycloak
+    - keycloak.keycloak.svc
+  http:
     - route:
         - destination:
-            host: keycloak-http
+            host: keycloak.keycloak.svc.cluster.local
             port:
               number: 80
-          weight: 100
-      match:
-        - uri:
-            prefix: /
