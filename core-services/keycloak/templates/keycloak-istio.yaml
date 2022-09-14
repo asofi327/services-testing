@@ -25,7 +25,7 @@ spec:
   http:
     - route:
         - destination:
-            host: keycloak-http.keycloak.svc.cluster.local
+            host: keycloak-0.keycloak.svc.cluster.local
             port:
               number: 8080
 ---
