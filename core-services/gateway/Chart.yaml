@@ -11,3 +11,4 @@ dependencies:
 - name: gateway
   alias: istio-ingressgateway
   version: 1.15.0
+  repository: https://istio-release.storage.googleapis.com/charts
