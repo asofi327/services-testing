@@ -1,8 +1,8 @@
 base:
   namespace: istio-system
-istiod:
-  meshConfig:
-  accessLogFile: /dev/stdout
+# istiod:
+#   meshConfig:
+#     accessLogFile: /dev/stdout
 #   namespace: istio-system
 #   meshConfig:
 #     rootNamespace: istio-system
